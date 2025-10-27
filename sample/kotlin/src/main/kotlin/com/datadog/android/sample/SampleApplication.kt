@@ -76,9 +76,12 @@ class SampleApplication : Application() {
 
     private val tracedHosts = listOf(
         "datadoghq.com",
-        "127.0.0.1"
+        "127.0.0.1",
+        "jira.flashcat.cloud",
+        "flashcat.cloud"
     )
 
+    // For debugging: Add proxy configuration if needed
     private val okHttpClient = OkHttpClient.Builder()
         .addInterceptor(
             DatadogInterceptor.Builder(tracedHosts)
@@ -89,6 +92,10 @@ class SampleApplication : Application() {
                 .build()
         )
         .eventListenerFactory(DatadogEventListener.Factory())
+        // Increase timeout for VPN/internal network
+        .connectTimeout(30, java.util.concurrent.TimeUnit.SECONDS)
+        .readTimeout(30, java.util.concurrent.TimeUnit.SECONDS)
+        .writeTimeout(30, java.util.concurrent.TimeUnit.SECONDS)
         .build()
 
     private val retrofitClient = Retrofit.Builder()
@@ -190,6 +197,7 @@ class SampleApplication : Application() {
     private fun initializeTraces() {
         val tracesConfig = TraceConfiguration.Builder().apply {
             if (BuildConfig.DD_OVERRIDE_TRACES_URL.isNotBlank()) {
+                Log.d("DatadogDebug", "Using traces endpoint: ${BuildConfig.DD_OVERRIDE_TRACES_URL}")
                 useCustomEndpoint(BuildConfig.DD_OVERRIDE_TRACES_URL)
             }
         }.build()
@@ -209,6 +217,7 @@ class SampleApplication : Application() {
     private fun initializeLogs() {
         val logsConfig = LogsConfiguration.Builder().apply {
             if (BuildConfig.DD_OVERRIDE_LOGS_URL.isNotBlank()) {
+                Log.d("DatadogDebug", "Using logs endpoint: ${BuildConfig.DD_OVERRIDE_LOGS_URL}")
                 useCustomEndpoint(BuildConfig.DD_OVERRIDE_LOGS_URL)
             }
         }.build()
@@ -225,6 +234,7 @@ class SampleApplication : Application() {
         val sessionReplayConfig = SessionReplayConfiguration.Builder(SAMPLE_IN_ALL_SESSIONS)
             .apply {
                 if (BuildConfig.DD_OVERRIDE_SESSION_REPLAY_URL.isNotBlank()) {
+                    Log.d("DatadogDebug", "Using session replay endpoint: ${BuildConfig.DD_OVERRIDE_SESSION_REPLAY_URL}")
                     useCustomEndpoint(BuildConfig.DD_OVERRIDE_SESSION_REPLAY_URL)
                 }
 
@@ -281,6 +291,7 @@ class SampleApplication : Application() {
         return RumConfiguration.Builder(BuildConfig.DD_RUM_APPLICATION_ID)
             .apply {
                 if (BuildConfig.DD_OVERRIDE_RUM_URL.isNotBlank()) {
+                    Log.d("DatadogDebug", "Using RUM endpoint: ${BuildConfig.DD_OVERRIDE_RUM_URL}")
                     useCustomEndpoint(BuildConfig.DD_OVERRIDE_RUM_URL)
                 }
             }
@@ -329,6 +340,8 @@ class SampleApplication : Application() {
 
     @SuppressLint("LogNotTimber")
     private fun createDatadogConfiguration(): Configuration {
+        Log.d("DatadogDebug", "Creating Datadog configuration with traced hosts: $tracedHosts")
+        Log.d("DatadogDebug", "Site name: ${BuildConfig.DD_SITE_NAME}")
         val configBuilder = Configuration.Builder(
             clientToken = BuildConfig.DD_CLIENT_TOKEN,
             env = BuildConfig.BUILD_TYPE,
