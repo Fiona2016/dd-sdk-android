@@ -97,6 +97,7 @@ dependencies {
 
     // Network
     implementation(libs.okHttp)
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0") // 用于 DEBUG 日志
     implementation(libs.gson)
     implementation(libs.kronosNTP)
 

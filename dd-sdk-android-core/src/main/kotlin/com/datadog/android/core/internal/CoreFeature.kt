@@ -583,6 +583,17 @@ internal class CoreFeature(
             if (BuildConfig.DEBUG) {
                 @Suppress("UnsafeThirdPartyFunctionCall") // NPE cannot happen here
                 builder.addNetworkInterceptor(CurlInterceptor())
+                // 添加详细的 HTTP 日志拦截器用于调试
+                @Suppress("UnsafeThirdPartyFunctionCall")
+                builder.addInterceptor(
+                    okhttp3.logging.HttpLoggingInterceptor { message ->
+                        android.util.Log.d("DatadogSDK-Network", message)
+                    }.apply {
+                        level = okhttp3.logging.HttpLoggingInterceptor.Level.BODY
+                    }
+                )
+                // 尝试添加 Stetho 网络拦截器（如果可用）
+                addStethoInterceptorIfAvailable(builder)
             } else {
                 @Suppress("UnsafeThirdPartyFunctionCall") // NPE cannot happen here
                 builder.addInterceptor(GzipRequestInterceptor(internalLogger))
@@ -597,6 +608,39 @@ internal class CoreFeature(
             builder.dns(RotatingDnsResolver())
 
             builder.build()
+        }
+    }
+
+    /**
+     * 使用反射动态添加 Stetho 拦截器（避免编译时依赖）
+     */
+    @Suppress("SwallowedException", "TooGenericExceptionCaught")
+    private fun addStethoInterceptorIfAvailable(builder: OkHttpClient.Builder) {
+        try {
+            // 使用反射加载 Stetho 类，避免编译时依赖
+            val stethoInterceptorClass = Class.forName("com.facebook.stetho.okhttp3.StethoInterceptor")
+            val interceptor = stethoInterceptorClass.getDeclaredConstructor().newInstance() as okhttp3.Interceptor
+            @Suppress("UnsafeThirdPartyFunctionCall")
+            builder.addNetworkInterceptor(interceptor)
+            internalLogger.log(
+                com.datadog.android.api.InternalLogger.Level.INFO,
+                com.datadog.android.api.InternalLogger.Target.USER,
+                { "Stetho network interceptor added successfully" }
+            )
+        } catch (e: ClassNotFoundException) {
+            // Stetho 不可用，这是正常的（在没有 Stetho 的环境中）
+            internalLogger.log(
+                com.datadog.android.api.InternalLogger.Level.DEBUG,
+                com.datadog.android.api.InternalLogger.Target.USER,
+                { "Stetho not available (class not found)" }
+            )
+        } catch (e: Exception) {
+            // 其他错误，记录但不影响功能
+            internalLogger.log(
+                com.datadog.android.api.InternalLogger.Level.WARN,
+                com.datadog.android.api.InternalLogger.Target.USER,
+                { "Failed to add Stetho interceptor: ${e.message}" }
+            )
         }
     }
 

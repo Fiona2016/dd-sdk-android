@@ -62,6 +62,7 @@ import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import io.opentelemetry.api.GlobalOpenTelemetry
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -83,6 +84,20 @@ class SampleApplication : Application() {
 
     // For debugging: Add proxy configuration if needed
     private val okHttpClient = OkHttpClient.Builder()
+        // 添加日志拦截器，用于在 logcat 中查看网络请求和响应
+        .addInterceptor(
+            HttpLoggingInterceptor { message ->
+                // 使用 Android Log 输出到 logcat，tag 为 "NetworkLog"
+                Log.e("NetworkLog", message)  // 使用 Log.e 让日志更明显（红色显示）
+            }.apply {
+                level = HttpLoggingInterceptor.Level.BODY // 显示请求和响应的完整内容（包括 headers 和 body）
+                // 其他可选级别：
+                // Level.NONE - 不记录
+                // Level.BASIC - 仅记录请求方法、URL、响应状态码和执行时间
+                // Level.HEADERS - 记录 BASIC 信息以及请求和响应的 headers
+                // Level.BODY - 记录 HEADERS 信息以及请求和响应的 body
+            }
+        )
         .addInterceptor(
             DatadogInterceptor.Builder(tracedHosts)
                 .build()
@@ -111,6 +126,9 @@ class SampleApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        // 测试日志 - 验证应用启动
+        Log.e("NetworkLog", "============ Application Started ============")
+        Log.e("NetworkLog", "OkHttp Logging Interceptor is configured!")
         Stetho.initializeWithDefaults(this)
         initializeDatadog()
 
