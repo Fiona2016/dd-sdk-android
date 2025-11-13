@@ -17,6 +17,8 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.widget.AppCompatSpinner
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.datadog.android.rum.GlobalRumMonitor
+import com.datadog.android.rum.RumErrorSource
 import com.datadog.android.sample.R
 
 @Suppress("MagicNumber")
@@ -81,6 +83,19 @@ internal class CrashFragment :
     // region Internal
 
     private fun triggerCrash(): Int {
+        Log.d("CrashFragment", "error is trigger")
+        
+        // 先发送一个非致命错误
+        GlobalRumMonitor.get().addError(
+            "About to crash",
+            RumErrorSource.SOURCE, 
+            RuntimeException("Pre-crash error"),
+            mapOf("pre_crash" to true)
+        )
+    
+        // 等待事件处理
+        Thread.sleep(1000)
+        
         val className = javaClass.simpleName
         val i = className.length - className.toUpperCase().length
         return className.length / i
