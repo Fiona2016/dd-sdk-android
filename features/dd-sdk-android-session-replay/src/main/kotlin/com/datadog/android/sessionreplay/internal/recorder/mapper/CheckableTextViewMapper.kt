@@ -10,7 +10,7 @@ import android.graphics.drawable.Drawable
 import android.widget.Checkable
 import android.widget.TextView
 import androidx.annotation.UiThread
-import com.datadog.android.api.InternalLogger
+import com.flashcat.android.api.InternalLogger
 import com.datadog.android.sessionreplay.model.MobileSegment
 import com.datadog.android.sessionreplay.recorder.MappingContext
 import com.datadog.android.sessionreplay.recorder.mapper.TextViewMapper

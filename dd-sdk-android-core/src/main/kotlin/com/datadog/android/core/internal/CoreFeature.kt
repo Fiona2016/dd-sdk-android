@@ -15,10 +15,10 @@ import android.os.Process
 import androidx.annotation.RequiresApi
 import androidx.annotation.WorkerThread
 import com.datadog.android.BuildConfig
-import com.datadog.android.Datadog
-import com.datadog.android.DatadogSite
-import com.datadog.android.api.InternalLogger
-import com.datadog.android.api.storage.RawBatchEvent
+import com.flashcat.android.Datadog
+import com.flashcat.android.DatadogSite
+import com.flashcat.android.api.InternalLogger
+import com.flashcat.android.api.storage.RawBatchEvent
 import com.datadog.android.core.configuration.BackPressureStrategy
 import com.datadog.android.core.configuration.BatchProcessingLevel
 import com.datadog.android.core.configuration.BatchSize
@@ -75,12 +75,12 @@ import com.datadog.android.core.thread.FlushableExecutorService
 import com.datadog.android.internal.time.DefaultTimeProvider
 import com.datadog.android.internal.time.TimeProvider
 import com.datadog.android.internal.utils.allowThreadDiskReads
-import com.datadog.android.ndk.internal.DatadogNdkCrashHandler
-import com.datadog.android.ndk.internal.NdkCrashHandler
-import com.datadog.android.ndk.internal.NdkCrashLogDeserializer
-import com.datadog.android.ndk.internal.NoOpNdkCrashHandler
-import com.datadog.android.privacy.TrackingConsent
-import com.datadog.android.security.Encryption
+import com.flashcat.android.ndk.internal.DatadogNdkCrashHandler
+import com.flashcat.android.ndk.internal.NdkCrashHandler
+import com.flashcat.android.ndk.internal.NdkCrashLogDeserializer
+import com.flashcat.android.ndk.internal.NoOpNdkCrashHandler
+import com.flashcat.android.privacy.TrackingConsent
+import com.flashcat.android.security.Encryption
 import com.google.gson.JsonObject
 import com.lyft.kronos.AndroidClockFactory
 import com.lyft.kronos.KronosClock
@@ -623,22 +623,22 @@ internal class CoreFeature(
             @Suppress("UnsafeThirdPartyFunctionCall")
             builder.addNetworkInterceptor(interceptor)
             internalLogger.log(
-                com.datadog.android.api.InternalLogger.Level.INFO,
-                com.datadog.android.api.InternalLogger.Target.USER,
+                com.flashcat.android.api.InternalLogger.Level.INFO,
+                com.flashcat.android.api.InternalLogger.Target.USER,
                 { "Stetho network interceptor added successfully" }
             )
         } catch (e: ClassNotFoundException) {
             // Stetho 不可用，这是正常的（在没有 Stetho 的环境中）
             internalLogger.log(
-                com.datadog.android.api.InternalLogger.Level.DEBUG,
-                com.datadog.android.api.InternalLogger.Target.USER,
+                com.flashcat.android.api.InternalLogger.Level.DEBUG,
+                com.flashcat.android.api.InternalLogger.Target.USER,
                 { "Stetho not available (class not found)" }
             )
         } catch (e: Exception) {
             // 其他错误，记录但不影响功能
             internalLogger.log(
-                com.datadog.android.api.InternalLogger.Level.WARN,
-                com.datadog.android.api.InternalLogger.Target.USER,
+                com.flashcat.android.api.InternalLogger.Level.WARN,
+                com.flashcat.android.api.InternalLogger.Target.USER,
                 { "Failed to add Stetho interceptor: ${e.message}" }
             )
         }

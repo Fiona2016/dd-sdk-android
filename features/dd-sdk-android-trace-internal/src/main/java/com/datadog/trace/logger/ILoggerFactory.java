@@ -8,7 +8,7 @@ package com.datadog.trace.logger;
 
 import androidx.annotation.NonNull;
 
-import com.datadog.android.api.InternalLogger;
+import com.flashcat.android.api.InternalLogger;
 
 public interface ILoggerFactory {
 

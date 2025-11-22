@@ -10,7 +10,7 @@ import android.content.Context
 import android.widget.ImageView
 import coil.Coil
 import coil.load
-import com.datadog.android.Datadog
+import com.flashcat.android.Datadog
 import com.datadog.android.coil.DatadogCoilRequestListener
 import okhttp3.OkHttpClient
 

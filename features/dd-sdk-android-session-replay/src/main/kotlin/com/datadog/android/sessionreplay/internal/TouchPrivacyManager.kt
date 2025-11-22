@@ -10,7 +10,7 @@ import android.graphics.Point
 import android.graphics.Rect
 import androidx.annotation.UiThread
 import androidx.annotation.VisibleForTesting
-import com.datadog.android.lint.InternalApi
+import com.flashcat.android.lint.InternalApi
 import com.datadog.android.sessionreplay.TouchPrivacy
 
 /**

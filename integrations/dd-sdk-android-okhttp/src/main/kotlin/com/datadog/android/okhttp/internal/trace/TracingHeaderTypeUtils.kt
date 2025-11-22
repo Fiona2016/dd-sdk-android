@@ -6,7 +6,7 @@
 
 package com.datadog.android.okhttp.internal.trace
 
-import com.datadog.android.trace.TracingHeaderType
+import com.flashcat.android.trace.TracingHeaderType
 
 private typealias InternalTracingHeaderType = com.datadog.android.internal.telemetry.TracingHeaderType
 
