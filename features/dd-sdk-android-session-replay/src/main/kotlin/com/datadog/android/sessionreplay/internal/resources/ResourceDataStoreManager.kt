@@ -11,7 +11,7 @@ import com.flashcat.android.api.feature.Feature
 import com.flashcat.android.api.feature.FeatureSdkCore
 import com.flashcat.android.api.storage.datastore.DataStoreReadCallback
 import com.flashcat.android.api.storage.datastore.DataStoreWriteCallback
-import com.datadog.android.core.internal.persistence.Deserializer
+import com.flashcat.android.core.internal.persistence.Deserializer
 import com.datadog.android.core.persistence.Serializer
 import com.datadog.android.core.persistence.datastore.DataStoreContent
 import com.datadog.android.sessionreplay.model.ResourceHashesEntry

@@ -7,9 +7,12 @@
 package com.datadog.android.core.internal.thread
 
 import com.flashcat.android.api.InternalLogger
-import com.datadog.android.core.configuration.BackPressureStrategy
+import com.flashcat.android.core.configuration.BackPressureStrategy
 import com.datadog.android.utils.verifyLog
 import com.datadog.tools.unit.forge.aThrowable
+import com.flashcat.android.core.internal.thread.DatadogThreadFactory
+import com.flashcat.android.core.internal.thread.ERROR_UNCAUGHT_EXECUTION_EXCEPTION
+import com.flashcat.android.core.internal.thread.LoggingScheduledThreadPoolExecutor
 import fr.xgouchet.elmyr.Forge
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test

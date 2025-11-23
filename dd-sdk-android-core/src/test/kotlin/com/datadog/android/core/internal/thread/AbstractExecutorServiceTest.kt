@@ -7,11 +7,12 @@
 package com.datadog.android.core.internal.thread
 
 import com.flashcat.android.api.InternalLogger
-import com.datadog.android.core.configuration.BackPressureMitigation
-import com.datadog.android.core.configuration.BackPressureStrategy
+import com.flashcat.android.core.configuration.BackPressureMitigation
+import com.flashcat.android.core.configuration.BackPressureStrategy
 import com.datadog.android.utils.forge.Configurator
 import com.datadog.android.utils.verifyLog
 import com.datadog.tools.unit.forge.aThrowable
+import com.flashcat.android.core.internal.thread.ERROR_UNCAUGHT_EXECUTION_EXCEPTION
 import fr.xgouchet.elmyr.Forge
 import fr.xgouchet.elmyr.annotation.Forgery
 import fr.xgouchet.elmyr.annotation.IntForgery

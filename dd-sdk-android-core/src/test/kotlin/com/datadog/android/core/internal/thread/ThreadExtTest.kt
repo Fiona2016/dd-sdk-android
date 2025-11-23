@@ -8,6 +8,7 @@ package com.datadog.android.core.internal.thread
 
 import com.flashcat.android.api.InternalLogger
 import com.datadog.tools.unit.forge.BaseConfigurator
+import com.flashcat.android.core.internal.thread.sleepSafe
 import fr.xgouchet.elmyr.annotation.LongForgery
 import fr.xgouchet.elmyr.junit5.ForgeConfiguration
 import fr.xgouchet.elmyr.junit5.ForgeExtension

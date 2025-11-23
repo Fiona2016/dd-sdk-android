@@ -11,14 +11,18 @@ import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequest
 import androidx.work.impl.WorkManagerImpl
 import com.flashcat.android.api.InternalLogger
-import com.datadog.android.core.UploadWorker
-import com.datadog.android.core.internal.CoreFeature
+import com.flashcat.android.core.UploadWorker
+import com.flashcat.android.core.internal.CoreFeature
 import com.datadog.android.utils.config.ApplicationContextTestConfiguration
 import com.datadog.android.utils.forge.Configurator
 import com.datadog.tools.unit.annotations.TestConfigurationsProvider
 import com.datadog.tools.unit.extensions.TestConfigurationExtension
 import com.datadog.tools.unit.extensions.config.TestConfiguration
 import com.datadog.tools.unit.setStaticValue
+import com.flashcat.android.core.internal.utils.TAG_DATADOG_UPLOAD
+import com.flashcat.android.core.internal.utils.UPLOAD_WORKER_NAME
+import com.flashcat.android.core.internal.utils.cancelUploadWorker
+import com.flashcat.android.core.internal.utils.triggerUploadWorker
 import fr.xgouchet.elmyr.annotation.StringForgery
 import fr.xgouchet.elmyr.junit5.ForgeConfiguration
 import fr.xgouchet.elmyr.junit5.ForgeExtension
@@ -88,7 +92,7 @@ internal class WorkManagerUtilsTest {
         cancelUploadWorker(appContext.mockInstance, fakeInstanceName, mockInternalLogger)
 
         // Then
-        verify(mockWorkManager).cancelAllWorkByTag("$TAG_DATADOG_UPLOAD/$fakeInstanceName")
+        verify(mockWorkManager).cancelAllWorkByTag("${TAG_DATADOG_UPLOAD}/$fakeInstanceName")
     }
 
     @Test
@@ -118,7 +122,7 @@ internal class WorkManagerUtilsTest {
             val workSpec = lastValue.workSpec
             assertThat(workSpec.workerClassName).isEqualTo(UploadWorker::class.java.canonicalName)
             assertThat(workSpec.input.getString(UploadWorker.DATADOG_INSTANCE_NAME)).isEqualTo(fakeInstanceName)
-            assertThat(lastValue.tags).contains("$TAG_DATADOG_UPLOAD/$fakeInstanceName")
+            assertThat(lastValue.tags).contains("${TAG_DATADOG_UPLOAD}/$fakeInstanceName")
         }
     }
 

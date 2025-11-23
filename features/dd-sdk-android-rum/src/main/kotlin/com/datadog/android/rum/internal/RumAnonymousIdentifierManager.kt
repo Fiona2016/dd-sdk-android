@@ -9,7 +9,7 @@ package com.datadog.android.rum.internal
 import com.flashcat.android.api.feature.FeatureSdkCore
 import com.flashcat.android.api.storage.datastore.DataStoreHandler
 import com.flashcat.android.api.storage.datastore.DataStoreReadCallback
-import com.datadog.android.core.internal.persistence.Deserializer
+import com.flashcat.android.core.internal.persistence.Deserializer
 import com.datadog.android.core.persistence.Serializer
 import com.datadog.android.core.persistence.datastore.DataStoreContent
 import java.util.UUID

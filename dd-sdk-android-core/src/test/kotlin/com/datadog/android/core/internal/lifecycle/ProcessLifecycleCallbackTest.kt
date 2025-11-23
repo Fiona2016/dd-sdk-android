@@ -11,15 +11,16 @@ import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequest
 import androidx.work.impl.WorkManagerImpl
 import com.flashcat.android.api.InternalLogger
-import com.datadog.android.core.UploadWorker
-import com.datadog.android.core.internal.utils.TAG_DATADOG_UPLOAD
-import com.datadog.android.core.internal.utils.UPLOAD_WORKER_NAME
+import com.flashcat.android.core.UploadWorker
+import com.flashcat.android.core.internal.utils.TAG_DATADOG_UPLOAD
+import com.flashcat.android.core.internal.utils.UPLOAD_WORKER_NAME
 import com.datadog.android.utils.config.ApplicationContextTestConfiguration
 import com.datadog.android.utils.forge.Configurator
 import com.datadog.tools.unit.annotations.TestConfigurationsProvider
 import com.datadog.tools.unit.extensions.TestConfigurationExtension
 import com.datadog.tools.unit.extensions.config.TestConfiguration
 import com.datadog.tools.unit.setStaticValue
+import com.flashcat.android.core.internal.lifecycle.ProcessLifecycleCallback
 import fr.xgouchet.elmyr.annotation.StringForgery
 import fr.xgouchet.elmyr.junit5.ForgeConfiguration
 import fr.xgouchet.elmyr.junit5.ForgeExtension
@@ -65,7 +66,8 @@ internal class ProcessLifecycleCallbackTest {
 
     @BeforeEach
     fun `set up`() {
-        testedCallback = ProcessLifecycleCallback(appContext.mockInstance, fakeInstanceName, mockInternalLogger)
+        testedCallback =
+            ProcessLifecycleCallback(appContext.mockInstance, fakeInstanceName, mockInternalLogger)
     }
 
     @AfterEach

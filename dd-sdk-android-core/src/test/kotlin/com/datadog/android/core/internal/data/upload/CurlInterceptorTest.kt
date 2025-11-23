@@ -7,6 +7,7 @@
 package com.datadog.android.core.internal.data.upload
 
 import com.datadog.android.utils.forge.Configurator
+import com.flashcat.android.core.internal.data.upload.CurlInterceptor
 import fr.xgouchet.elmyr.annotation.AdvancedForgery
 import fr.xgouchet.elmyr.annotation.BoolForgery
 import fr.xgouchet.elmyr.annotation.IntForgery

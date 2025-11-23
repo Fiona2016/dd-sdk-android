@@ -10,6 +10,10 @@ import com.flashcat.android.api.InternalLogger
 import com.datadog.android.utils.forge.Configurator
 import com.datadog.android.utils.verifyLog
 import com.datadog.tools.unit.forge.aThrowable
+import com.flashcat.android.core.internal.utils.executeSafe
+import com.flashcat.android.core.internal.utils.getSafe
+import com.flashcat.android.core.internal.utils.scheduleSafe
+import com.flashcat.android.core.internal.utils.submitSafe
 import fr.xgouchet.elmyr.Forge
 import fr.xgouchet.elmyr.annotation.Forgery
 import fr.xgouchet.elmyr.annotation.LongForgery

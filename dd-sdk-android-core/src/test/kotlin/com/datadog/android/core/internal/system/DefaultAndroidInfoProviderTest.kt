@@ -20,6 +20,9 @@ import com.flashcat.android.api.context.DeviceType
 import com.datadog.android.utils.forge.Configurator
 import com.datadog.tools.unit.annotations.TestTargetApi
 import com.datadog.tools.unit.extensions.ApiLevelExtension
+import com.flashcat.android.core.internal.system.AndroidInfoProvider
+import com.flashcat.android.core.internal.system.BuildSdkVersionProvider
+import com.flashcat.android.core.internal.system.DefaultAndroidInfoProvider
 import fr.xgouchet.elmyr.Forge
 import fr.xgouchet.elmyr.annotation.IntForgery
 import fr.xgouchet.elmyr.annotation.StringForgery

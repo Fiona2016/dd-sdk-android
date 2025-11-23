@@ -7,6 +7,7 @@
 package com.datadog.android.core.internal.thread
 
 import com.datadog.android.utils.forge.Configurator
+import com.flashcat.android.core.internal.thread.DatadogThreadFactory
 import fr.xgouchet.elmyr.annotation.StringForgery
 import fr.xgouchet.elmyr.junit5.ForgeConfiguration
 import fr.xgouchet.elmyr.junit5.ForgeExtension

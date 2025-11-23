@@ -6,8 +6,8 @@
 
 package com.datadog.android.utils.assertj
 
-import com.datadog.android.core.internal.utils.toJsonArray
-import com.datadog.android.core.internal.utils.toJsonObject
+import com.flashcat.android.core.internal.utils.toJsonArray
+import com.flashcat.android.core.internal.utils.toJsonObject
 import com.google.gson.JsonArray
 import com.google.gson.JsonElement
 import com.google.gson.JsonNull

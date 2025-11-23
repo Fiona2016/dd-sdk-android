@@ -13,6 +13,8 @@ import android.os.PowerManager
 import com.flashcat.android.api.InternalLogger
 import com.datadog.android.utils.assertj.SystemInfoAssert.Companion.assertThat
 import com.datadog.android.utils.forge.Configurator
+import com.flashcat.android.core.internal.system.BroadcastReceiverSystemInfoProvider
+import com.flashcat.android.core.internal.system.SystemInfo
 import fr.xgouchet.elmyr.Forge
 import fr.xgouchet.elmyr.annotation.BoolForgery
 import fr.xgouchet.elmyr.annotation.Forgery

@@ -13,10 +13,11 @@ import android.net.NetworkCapabilities
 import android.os.Build
 import com.flashcat.android.api.InternalLogger
 import com.flashcat.android.api.context.NetworkInfo
-import com.datadog.android.core.internal.system.BuildSdkVersionProvider
+import com.flashcat.android.core.internal.system.BuildSdkVersionProvider
 import com.datadog.android.utils.assertj.NetworkInfoAssert.Companion.assertThat
 import com.datadog.android.utils.forge.Configurator
 import com.datadog.android.utils.verifyLog
+import com.flashcat.android.core.internal.net.info.CallbackNetworkInfoProvider
 import fr.xgouchet.elmyr.annotation.IntForgery
 import fr.xgouchet.elmyr.annotation.StringForgery
 import fr.xgouchet.elmyr.junit5.ForgeConfiguration
@@ -68,7 +69,8 @@ internal class CallbackNetworkInfoProviderTest {
         whenever(mockCapabilities.hasTransport(any())) doReturn false
         whenever(mockBuildSdkVersionProvider.version) doReturn Build.VERSION_CODES.BASE
 
-        testedProvider = CallbackNetworkInfoProvider(mockBuildSdkVersionProvider, mockInternalLogger)
+        testedProvider =
+            CallbackNetworkInfoProvider(mockBuildSdkVersionProvider, mockInternalLogger)
     }
 
     @Test

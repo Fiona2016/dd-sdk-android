@@ -9,6 +9,7 @@ package com.datadog.android.core.internal.user
 import com.flashcat.android.api.context.UserInfo
 import com.datadog.android.utils.forge.Configurator
 import com.datadog.tools.unit.forge.exhaustiveAttributes
+import com.flashcat.android.core.internal.user.DatadogUserInfoProvider
 import fr.xgouchet.elmyr.Forge
 import fr.xgouchet.elmyr.annotation.AdvancedForgery
 import fr.xgouchet.elmyr.annotation.Forgery

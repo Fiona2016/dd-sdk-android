@@ -7,6 +7,7 @@
 package com.datadog.android.core.internal.time
 
 import com.datadog.android.utils.forge.Configurator
+import com.flashcat.android.core.internal.time.KronosTimeProvider
 import com.lyft.kronos.Clock
 import fr.xgouchet.elmyr.annotation.Forgery
 import fr.xgouchet.elmyr.junit5.ForgeConfiguration

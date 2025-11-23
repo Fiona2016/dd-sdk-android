@@ -8,6 +8,7 @@ package com.datadog.android.core.internal.net
 
 import com.flashcat.android.trace.TracingHeaderType
 import com.datadog.android.utils.forge.Configurator
+import com.flashcat.android.core.internal.net.DefaultFirstPartyHostHeaderTypeResolver
 import fr.xgouchet.elmyr.Forge
 import fr.xgouchet.elmyr.annotation.StringForgery
 import fr.xgouchet.elmyr.junit5.ForgeConfiguration

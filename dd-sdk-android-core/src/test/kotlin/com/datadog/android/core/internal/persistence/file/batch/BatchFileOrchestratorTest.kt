@@ -7,11 +7,11 @@
 package com.datadog.android.core.internal.persistence.file.batch
 
 import com.flashcat.android.api.InternalLogger
-import com.datadog.android.core.internal.metrics.BatchClosedMetadata
-import com.datadog.android.core.internal.metrics.MetricsDispatcher
-import com.datadog.android.core.internal.metrics.RemovalReason
-import com.datadog.android.core.internal.persistence.file.FileOrchestrator
-import com.datadog.android.core.internal.persistence.file.FilePersistenceConfig
+import com.flashcat.android.core.internal.metrics.BatchClosedMetadata
+import com.flashcat.android.core.internal.metrics.MetricsDispatcher
+import com.flashcat.android.core.internal.metrics.RemovalReason
+import com.flashcat.android.core.internal.persistence.file.FileOrchestrator
+import com.flashcat.android.core.internal.persistence.file.FilePersistenceConfig
 import com.datadog.android.utils.forge.Configurator
 import com.datadog.android.utils.verifyLog
 import fr.xgouchet.elmyr.Forge
@@ -35,7 +35,6 @@ import org.mockito.kotlin.argumentCaptor
 import org.mockito.kotlin.doReturn
 import org.mockito.kotlin.eq
 import org.mockito.kotlin.mock
-import org.mockito.kotlin.times
 import org.mockito.kotlin.verify
 import org.mockito.kotlin.verifyNoInteractions
 import org.mockito.kotlin.verifyNoMoreInteractions

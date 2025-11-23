@@ -10,6 +10,7 @@ import com.flashcat.android.api.InternalLogger
 import com.flashcat.android.api.SdkCore
 import com.datadog.android.utils.forge.Configurator
 import com.datadog.android.utils.verifyLog
+import com.flashcat.android.core.internal.SdkCoreRegistry
 import fr.xgouchet.elmyr.annotation.StringForgery
 import fr.xgouchet.elmyr.junit5.ForgeConfiguration
 import fr.xgouchet.elmyr.junit5.ForgeExtension

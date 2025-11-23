@@ -7,6 +7,15 @@
 package com.datadog.android.core.internal.utils
 
 import com.flashcat.android.api.InternalLogger
+import com.flashcat.android.core.internal.utils.copyOfRangeSafe
+import com.flashcat.android.core.internal.utils.copyTo
+import com.flashcat.android.core.internal.utils.indexOf
+import com.flashcat.android.core.internal.utils.join
+import com.flashcat.android.core.internal.utils.split
+import com.flashcat.android.core.internal.utils.toByteArray
+import com.flashcat.android.core.internal.utils.toInt
+import com.flashcat.android.core.internal.utils.toLong
+import com.flashcat.android.core.internal.utils.toShort
 import fr.xgouchet.elmyr.Forge
 import fr.xgouchet.elmyr.annotation.IntForgery
 import fr.xgouchet.elmyr.annotation.LongForgery

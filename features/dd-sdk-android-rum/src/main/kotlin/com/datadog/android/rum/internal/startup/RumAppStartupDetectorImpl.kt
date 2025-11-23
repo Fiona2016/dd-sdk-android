@@ -11,7 +11,7 @@ import android.app.ActivityManager
 import android.app.Application
 import android.os.Build
 import android.os.Bundle
-import com.datadog.android.core.internal.system.BuildSdkVersionProvider
+import com.flashcat.android.core.internal.system.BuildSdkVersionProvider
 import java.lang.ref.WeakReference
 import kotlin.time.Duration.Companion.seconds
 

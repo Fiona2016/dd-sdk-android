@@ -8,6 +8,7 @@ package com.datadog.android.core.internal.thread
 
 import com.datadog.android.internal.thread.NamedRunnable
 import com.datadog.android.utils.forge.Configurator
+import com.flashcat.android.core.internal.thread.ObservableLinkedBlockingQueue
 import fr.xgouchet.elmyr.Forge
 import fr.xgouchet.elmyr.junit5.ForgeConfiguration
 import fr.xgouchet.elmyr.junit5.ForgeExtension

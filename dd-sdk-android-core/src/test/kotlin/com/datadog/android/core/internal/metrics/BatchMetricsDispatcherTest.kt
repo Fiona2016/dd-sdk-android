@@ -8,10 +8,13 @@ package com.datadog.android.core.internal.metrics
 
 import com.flashcat.android.api.InternalLogger
 import com.flashcat.android.api.feature.Feature
-import com.datadog.android.core.internal.configuration.DataUploadConfiguration
-import com.datadog.android.core.internal.persistence.file.FilePersistenceConfig
+import com.flashcat.android.core.internal.configuration.DataUploadConfiguration
+import com.flashcat.android.core.internal.persistence.file.FilePersistenceConfig
 import com.datadog.android.internal.time.TimeProvider
 import com.datadog.android.utils.forge.Configurator
+import com.flashcat.android.core.internal.metrics.BatchClosedMetadata
+import com.flashcat.android.core.internal.metrics.BatchMetricsDispatcher
+import com.flashcat.android.core.internal.metrics.RemovalReason
 import fr.xgouchet.elmyr.Forge
 import fr.xgouchet.elmyr.annotation.Forgery
 import fr.xgouchet.elmyr.annotation.IntForgery

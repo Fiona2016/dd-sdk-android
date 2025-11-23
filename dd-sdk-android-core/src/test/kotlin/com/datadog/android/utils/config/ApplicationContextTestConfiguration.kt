@@ -11,7 +11,7 @@ import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.content.res.AssetManager
-import com.datadog.android.core.internal.CoreFeature
+import com.flashcat.android.core.internal.CoreFeature
 import com.datadog.tools.unit.extensions.config.MockTestConfiguration
 import fr.xgouchet.elmyr.Forge
 import org.mockito.kotlin.any

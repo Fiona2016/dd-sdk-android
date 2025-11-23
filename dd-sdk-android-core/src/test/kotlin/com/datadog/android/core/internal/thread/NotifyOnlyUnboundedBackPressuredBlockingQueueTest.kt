@@ -8,6 +8,7 @@ package com.datadog.android.core.internal.thread
 
 import com.flashcat.android.api.InternalLogger
 import com.datadog.android.utils.forge.Configurator
+import com.flashcat.android.core.internal.thread.BackPressuredBlockingQueue
 import fr.xgouchet.elmyr.Forge
 import fr.xgouchet.elmyr.annotation.IntForgery
 import fr.xgouchet.elmyr.annotation.LongForgery

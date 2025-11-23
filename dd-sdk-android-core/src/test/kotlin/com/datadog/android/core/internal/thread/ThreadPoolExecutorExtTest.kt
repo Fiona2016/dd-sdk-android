@@ -8,6 +8,9 @@ package com.datadog.android.core.internal.thread
 
 import com.flashcat.android.api.InternalLogger
 import com.datadog.android.utils.forge.Configurator
+import com.flashcat.android.core.internal.thread.MAX_SLEEP_DURATION_IN_MS
+import com.flashcat.android.core.internal.thread.isIdle
+import com.flashcat.android.core.internal.thread.waitToIdle
 import fr.xgouchet.elmyr.Forge
 import fr.xgouchet.elmyr.annotation.LongForgery
 import fr.xgouchet.elmyr.junit5.ForgeConfiguration

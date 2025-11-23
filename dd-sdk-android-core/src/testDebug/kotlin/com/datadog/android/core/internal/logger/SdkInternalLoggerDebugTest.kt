@@ -7,6 +7,8 @@
 package com.datadog.android.core.internal.logger
 
 import com.datadog.android.utils.forge.Configurator
+import com.flashcat.android.core.internal.logger.LogcatLogHandler
+import com.flashcat.android.core.internal.logger.SdkInternalLogger
 import fr.xgouchet.elmyr.Forge
 import fr.xgouchet.elmyr.junit5.ForgeConfiguration
 import fr.xgouchet.elmyr.junit5.ForgeExtension

@@ -8,9 +8,10 @@ package com.datadog.android.core.internal.account
 
 import com.flashcat.android.api.InternalLogger
 import com.flashcat.android.api.context.AccountInfo
-import com.datadog.android.core.internal.account.DatadogAccountInfoProvider.Companion.MSG_ACCOUNT_NULL
+import com.flashcat.android.core.internal.account.DatadogAccountInfoProvider.Companion.MSG_ACCOUNT_NULL
 import com.datadog.android.utils.forge.Configurator
 import com.datadog.tools.unit.forge.exhaustiveAttributes
+import com.flashcat.android.core.internal.account.DatadogAccountInfoProvider
 import fr.xgouchet.elmyr.Forge
 import fr.xgouchet.elmyr.annotation.AdvancedForgery
 import fr.xgouchet.elmyr.annotation.Forgery

@@ -12,13 +12,15 @@ import com.flashcat.android.api.InternalLogger
 import com.flashcat.android.api.feature.Feature
 import com.flashcat.android.api.feature.FeatureScope
 import com.flashcat.android.api.feature.FeatureSdkCore
-import com.datadog.android.core.internal.metrics.MethodCalledTelemetry
-import com.datadog.android.core.metrics.TelemetryMetricType
+import com.flashcat.android.core.internal.metrics.MethodCalledTelemetry
+import com.flashcat.android.core.metrics.TelemetryMetricType
 import com.datadog.android.internal.attributes.LocalAttribute
 import com.datadog.android.internal.telemetry.InternalTelemetryEvent
 import com.datadog.android.utils.forge.Configurator
 import com.datadog.tools.unit.forge.aThrowable
 import com.datadog.tools.unit.forge.exhaustiveAttributes
+import com.flashcat.android.core.internal.logger.LogcatLogHandler
+import com.flashcat.android.core.internal.logger.SdkInternalLogger
 import fr.xgouchet.elmyr.Forge
 import fr.xgouchet.elmyr.annotation.FloatForgery
 import fr.xgouchet.elmyr.annotation.Forgery

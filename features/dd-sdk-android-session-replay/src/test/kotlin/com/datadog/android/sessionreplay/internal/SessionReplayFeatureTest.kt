@@ -11,7 +11,7 @@ import com.flashcat.android.api.InternalLogger
 import com.flashcat.android.api.feature.Feature
 import com.flashcat.android.api.feature.FeatureContextUpdateReceiver
 import com.flashcat.android.api.feature.FeatureSdkCore
-import com.datadog.android.core.sampling.Sampler
+import com.flashcat.android.core.sampling.Sampler
 import com.datadog.android.sessionreplay.NoOpSessionReplayInternalCallback
 import com.datadog.android.sessionreplay.SessionReplayConfiguration
 import com.datadog.android.sessionreplay.forge.ForgeConfigurator

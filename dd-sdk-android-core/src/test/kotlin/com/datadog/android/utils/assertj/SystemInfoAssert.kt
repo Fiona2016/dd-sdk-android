@@ -6,7 +6,7 @@
 
 package com.datadog.android.utils.assertj
 
-import com.datadog.android.core.internal.system.SystemInfo
+import com.flashcat.android.core.internal.system.SystemInfo
 import org.assertj.core.api.AbstractObjectAssert
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.data.Offset

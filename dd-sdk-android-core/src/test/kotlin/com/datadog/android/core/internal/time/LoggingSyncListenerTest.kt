@@ -9,6 +9,7 @@ package com.datadog.android.core.internal.time
 import com.flashcat.android.api.InternalLogger
 import com.datadog.android.utils.verifyLog
 import com.datadog.tools.unit.forge.aThrowable
+import com.flashcat.android.core.internal.time.LoggingSyncListener
 import fr.xgouchet.elmyr.Forge
 import fr.xgouchet.elmyr.annotation.StringForgery
 import fr.xgouchet.elmyr.junit5.ForgeExtension

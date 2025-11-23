@@ -8,6 +8,7 @@ package com.datadog.android.core.internal.data.upload
 
 import com.flashcat.android.api.InternalLogger
 import com.datadog.android.utils.forge.Configurator
+import com.flashcat.android.core.internal.data.upload.GzipRequestInterceptor
 import fr.xgouchet.elmyr.Forge
 import fr.xgouchet.elmyr.junit5.ForgeConfiguration
 import fr.xgouchet.elmyr.junit5.ForgeExtension

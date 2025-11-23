@@ -10,7 +10,7 @@ import android.app.Application
 import com.flashcat.android.api.context.AccountInfo
 import com.flashcat.android.api.context.NetworkInfo
 import com.flashcat.android.api.context.UserInfo
-import com.datadog.android.core.internal.system.AndroidInfoProvider
+import com.flashcat.android.core.internal.system.AndroidInfoProvider
 import com.flashcat.android.privacy.TrackingConsent
 import com.datadog.android.utils.config.ApplicationContextTestConfiguration
 import com.datadog.android.utils.config.CoreFeatureTestConfiguration
@@ -19,6 +19,9 @@ import com.datadog.tools.unit.annotations.TestConfigurationsProvider
 import com.datadog.tools.unit.extensions.TestConfigurationExtension
 import com.datadog.tools.unit.extensions.config.TestConfiguration
 import com.datadog.tools.unit.forge.exhaustiveAttributes
+import com.flashcat.android.core.internal.ContextProvider
+import com.flashcat.android.core.internal.DatadogContextProvider
+import com.flashcat.android.core.internal.FeatureContextProvider
 import fr.xgouchet.elmyr.Forge
 import fr.xgouchet.elmyr.annotation.Forgery
 import fr.xgouchet.elmyr.annotation.LongForgery
@@ -78,7 +81,8 @@ internal class DatadogContextProviderTest {
 
     @BeforeEach
     fun setUp(forge: Forge) {
-        testedProvider = DatadogContextProvider(coreFeature.mockInstance, mockFeatureContextProvider)
+        testedProvider =
+            DatadogContextProvider(coreFeature.mockInstance, mockFeatureContextProvider)
 
         whenever(coreFeature.mockInstance.userInfoProvider.getUserInfo()) doReturn fakeUserInfo
         whenever(coreFeature.mockInstance.accountInfoProvider.getAccountInfo()) doReturn fakeAccountInfo
